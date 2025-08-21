@@ -1,7 +1,7 @@
 import React from 'react'
 import './TodoList.css'
 import TodoItem from './TodoItem'
-const TodoList = ({todos,onDelete,onUpdateChecked,onUpdateText}) => {
+const TodoList = ({todos,onDelete,onUpdateChecked,onUpdateTodo}) => {
   return (
     <div className='TodoList'>
         <h4>Todo List 🌱</h4>
@@ -13,7 +13,7 @@ const TodoList = ({todos,onDelete,onUpdateChecked,onUpdateText}) => {
             key={i} 
             todo={todo}
             onUpdateChecked={onUpdateChecked} 
-            onUpdateText={onUpdateText}
+            onUpdateTodo={onUpdateTodo}
             onDelete={onDelete}/>
           ))}
         

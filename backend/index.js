@@ -2,6 +2,8 @@ const express = require("express")
 const mongoose=require("mongoose")
 const dotenv=require("dotenv")
 const cors=require("cors")
+const cookieParser = require("cookie-parser");
+
 
 dotenv.config()
 
@@ -14,6 +16,8 @@ app.use(cors({
     credentials:true
 }))
 
+app.use(cookieParser())
+
 mongoose
     .connect(process.env.MONGO_URI)
     .then(()=>console.log("MongoDB 연결 성공"))
@@ -23,6 +27,7 @@ mongoose
 const todoRoutes=require('./routes/todoRoutes')
 app.use('/api/todos',todoRoutes)
 
+const authRoutes=require('./routes/authRoutes')
 
 
 app.get('/',(req,res)=>{
